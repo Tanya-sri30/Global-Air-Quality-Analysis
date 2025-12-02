@@ -1,0 +1,25 @@
+# Ignore large datasets
+data/*.csv
+
+# Ignore analysis outputs
+outputs/*
+visuals/*_summary.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Ignore large datasets
+data/
+outputs/
+visuals/*summary.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment
+venv/
+
+# CSV files (large datasets)
+*.csv

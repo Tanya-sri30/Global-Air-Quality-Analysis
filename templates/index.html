@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🌍 Global Air Quality & Climate Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            background: linear-gradient(90deg, #0052cc, #00bcd4);
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        header h1 { font-size: 2rem; margin: 0; }
+        header p { font-size: 1.1rem; opacity: 0.9; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card-content h2 {
+            color: #003366;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-content p {
+            color: #444;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #003366;
+            color: white;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌍 Global Air Quality & Climate Visual Report</h1>
+        <p>Data-Driven Insights on Environmental Change and Pollution Patterns</p>
+    </header>
+
+    <div class="gallery">
+        {% for v in visuals %}
+        <div class="card">
+            <img src="{{ url_for('visuals', filename=v.filename) }}" alt="{{ v.caption }}">
+            <div class="card-content">
+                <h2>{{ v.caption }}</h2>
+                <p>{{ v.desc }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        Developed as part of the <b>Global Air Quality Analysis</b> project.<br>
+        Built using <b>Flask, Python, Pandas, and Matplotlib</b> — © 2025 Climate Intelligence Initiative.
+    </footer>
+</body>
+</html>
